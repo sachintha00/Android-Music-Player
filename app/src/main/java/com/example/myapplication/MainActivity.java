@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.ListView;
 
 import com.karumi.dexter.Dexter;
@@ -65,5 +66,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return arrayList;
+    }
+
+    void displaySong(){
+        final ArrayList<File> mySong = findSongs(Environment.getExternalStorageDirectory());
+        items = new String[mySong.size()];
+
+        for (int i=0; i<mySong.size(); i++){
+            items[i] = mySong.get(i)
+                    .getName()
+                    .toString()
+                    .replace(".mp3","")
+                    .replace(".wav","");
+        }
     }
 }
