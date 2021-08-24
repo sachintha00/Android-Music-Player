@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.karumi.dexter.Dexter;
@@ -79,5 +80,12 @@ public class MainActivity extends AppCompatActivity {
                     .replace(".mp3","")
                     .replace(".wav","");
         }
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                items
+        );
+        listView.setAdapter(myAdapter);
     }
 }
