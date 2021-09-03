@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.karumi.dexter.Dexter;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listViewSong);
+        listView = (ListView) findViewById(R.id.listViewSong);
         runtimePermission();
     }
 
@@ -91,4 +94,28 @@ public class MainActivity extends AppCompatActivity {
         );
         listView.setAdapter(myAdapter);
     }
+
+//    class CustomAdapter extends BaseAdapter{
+//
+//        @Override
+//        public int getCount() {
+//            return items.length;
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//            View view = getLayoutInflater().inflate(R.layout.)
+//            return null;
+//        }
+//    }
 }
