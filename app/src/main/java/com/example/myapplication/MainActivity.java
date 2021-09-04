@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -87,35 +88,32 @@ public class MainActivity extends AppCompatActivity {
                     .replace(".wav","");
         }
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                items
-        );
-        listView.setAdapter(myAdapter);
+        CustomAdapter customAdapter = new CustomAdapter();
+        listView.setAdapter(customAdapter);
     }
 
-//    class CustomAdapter extends BaseAdapter{
-//
-//        @Override
-//        public int getCount() {
-//            return items.length;
-//        }
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return null;
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return 0;
-//        }
-//
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            View view = getLayoutInflater().inflate(R.layout.)
-//            return null;
-//        }
-//    }
+    class CustomAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return items.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.list_item,null);
+//            TextView txtSong = view.findViewById(R.id.txtS)
+            return view;
+        }
+    }
 }
